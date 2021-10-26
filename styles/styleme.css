@@ -24,9 +24,13 @@ ol {
   list-style-type: decimal; 
 }
 
-.imdbLink {
+a, .imdbLink {
   color: red;
   text-decoration: none;
+}
+
+.imdbLink:hover {
+  text-decoration: underline;
 }
 
 .column {
@@ -43,5 +47,17 @@ ol {
 .imgText {
   color: white;
   vertical-align: middle;
+}
+
+p::first-letter {
+  font-size: 1.5em;
+}
+
+.word {
+  color: orange;
+}
+
+.definition {
+  font-size: .8em;
 }
 
