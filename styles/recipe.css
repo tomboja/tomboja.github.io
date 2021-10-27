@@ -32,7 +32,7 @@ body {
   font-weight: bold;
 }
 
-ul li { 
+li { 
   list-style-image: url("../img/pie_icon.gif");
   margin-left: -20px; 
   margin-top: 2px;
