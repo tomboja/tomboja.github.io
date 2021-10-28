@@ -1,0 +1,70 @@
+body {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label, input {
+  display: inline-block;
+  vertical-align: baseline;
+  width: 125px;
+  margin-top: 10px;
+}
+
+label {
+  color: #2D2D2D;
+  font-size: 15px;
+}
+
+.gender {
+    width: 80px; 
+}
+
+form, input {
+  box-sizing: border-box;
+}
+
+form {
+  width: 300px;
+}
+
+.form {
+  width: 500px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.alignRight {
+  float: right;
+  margin-top: 30px;
+}
+
+.short {
+  width: 55px;
+}
+
+.legend {
+  border: 1px solid gray;
+  box-shadow: 2px 2px #888888;
+  background-color: white;
+}
+
+.formfield {
+  background-color: rgb(209, 208, 245);
+  box-shadow: 2px 2px #888888;
+  border-radius: 6px;
+}
+
+.type {
+  color: red;
+}
+
+input[type="radio"] {
+  width: 20px;
+}
+
+.signup {
+  margin-top: 20px;
+  width: 80px;
+  background-color: rgb(250, 150, 150);
+}

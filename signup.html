@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/signup.css">
+  <title>Signup Form</title>
+</head>
+
+<body>
+  <div class="logo">
+    <img src="./img/nerdLUV.png" alt="Nerd Luv Logo">
+  </div>
+  <form class="form" action="http://mumstudents.org/params.php">
+    <fieldset class="formfield">
+      <legend class="legend">New User Signup:</legend>
+      <label for="name">Name:</label>
+      <input type="text" id="name" maxlength="10"><br>
+
+      <label for="gender">Gender:</label>
+      <label class="gender"><input type="radio" name="gender" value="M">Male</label>
+      <label class="gender"><input type="radio" name="gender" value="F" checked>Female</label>
+      <br>
+
+      <label for="personality_type">Personality Type:</label>
+      <input type="text" id="personality_type" maxlength="4">
+      (<span class="type">Don't know your type</span>)<br>
+      <label for="age">Age:</label>
+      <input class="short" type="text" id="age" maxlength="2"><br>
+
+      <label for="favorite_os">Favorite OS:</label>
+      <select name="favorite_os" id="favorite_os">
+        <option value="windows">Windows</option>
+        <option value="mac_os">Mac Os X</option>
+        <option value="linux">Linux</option>
+      </select><br>
+
+      <label for="seekeing_age">Seeking Age:</label>
+      <input class="short" type="text" id="from" maxlength="2">
+      to
+      <input class="short" type="text" id="to" maxlength="2"><br>
+      <button class="signup" type="submit">Sign Up</button>
+    </fieldset>
+  </form>
+  <div>
+    <p>This page is for single nerds to meet and date each other! Type in your personal information and wait for the
+      nerdy luv to begin!</p>
+      <p>
+        Thank you for using our site!
+      </p>
+      <p>
+        Results and page &copy; Nerdy Luv Inc.
+      </p>
+      <p>
+        <a href="./index.html">⬅️Back to Homepage</a>
+      </p>
+  </div>
+  <div class="alignRight">
+    <a href="http://validator.w3.org/check?uri=https://tomboja.github.io/signup.html">
+      <img src="./img/w3c-html.png" alt="html validator" />
+    </a>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+      <img src="./img/w3c-css.png" alt="Css validator" />
+    </a>
+  </div>
+
+</body>
+
+</html>

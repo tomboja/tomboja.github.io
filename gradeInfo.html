@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/getGrade.css">
+  <title>Retrieve Grade</title>
+</head>
+
+<body>
+  <h1>Retrieve your grade</h1>
+
+  <form action="http://mumstudents.org/params.php">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="grade">Grade:</label>
+    <input type="text" id="grade" name="grade"><br><br>
+    <label for="assignment">Choose Assignment</label><br>
+    <select name="assignment" id="assignments">
+      <option value="1">Assignment 1</option>
+      <option value="2">Assignment 2</option>
+      <option value="3">Assignment 3</option>
+      <option value="4">Assignment 4</option>
+    </select>
+    <div>
+      <p>Please select your Entry:</p>
+        <input type="radio" id="august2021" name="entry" value="August_2021">
+        <label for="august2021">August 2021</label><br>
+
+        <input type="radio" id="october2021" name="entry" value="October_2021">
+        <label for="october2021">October 2021</label><br>
+
+        <input type="radio" id="february2021" name="entry" value="February_2021">
+        <label for="february2021">February 2021</label><br>
+    </div> <br>
+    <input type="checkbox" id="confirmation" name="confirmation" value="true">
+    <label for="confirmation"> I confim that I am requesting this page only for the purpose of retreaving my
+      grades. I confirm that using this form for malicious peropses results in a penality!</label><br>
+
+    <br>
+    <br>
+    <button type="submit">Get Grade!</button>
+  </form>
+  <div class="homeLink"><a href="./index.html">⬅️Back to Homepage</a></div>
+  <div class="alignRight">
+    <a href="http://validator.w3.org/check?uri=https://tomboja.github.io/gradeInfo.html">
+      <img src="./img/w3c-html.png" alt="html validator" />
+    </a>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+      <img src="./img/w3c-css.png" alt="Css validator" />
+    </a>
+  </div>
+</body>
+
+</html>
