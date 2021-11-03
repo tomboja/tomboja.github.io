@@ -1,0 +1,52 @@
+{
+  "rules": {
+    "array-bracket-spacing": ["error", "never"],
+    "consistent-return": "warn",
+    "eol-last": ["warn", "always"],
+    // "import/no-cycle": ["error"],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    // "jsx-quotes": ["error", "prefer-single"],
+    "key-spacing": ["error", { "mode": "strict" }],
+    "max-len": ["error", 180],
+    "no-console": "warn",
+    "no-multi-spaces": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+    "no-trailing-spaces": "error",
+    "no-unused-vars": ["warn", { "vars": "all", "args": "none" }],
+    // "no-unused-vars": ["warn", { "vars": "all", "args": "none", "varsIgnorePattern": "React" }],
+    "no-use-before-define": ["error", { "variables": true, "functions": true}],
+    // "no-var": ["error"],
+    "object-curly-spacing": ["error", "never"],
+    // "react/jsx-indent": ["error", 2],
+    // "react/jsx-uses-react": "error",
+    // "react/jsx-uses-vars": "error",
+    // "react/prop-types": "warn",
+    "require-atomic-updates": "warn",
+    "semi": ["warn", "never"]
+    // "semi": ["error", "never"]
+  },
+  // "plugins": ["react", "jsx-a11y", "import"],
+  "globals": {
+    "window": true,
+    "document": true,
+    "config": true,
+    "expect": true,
+    "jest": true,
+    "XHRMock": true,
+    "XMLHttpRequest": true,
+    "FileReader": true,
+    "Blob": true,
+    "FormData": true
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}

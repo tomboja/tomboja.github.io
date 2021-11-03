@@ -1,0 +1,53 @@
+.container {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #CCCCFF;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  height: 700px;
+}
+
+.title {
+  text-align: center;
+  font-size: 32pt;
+  font-weight: bold;
+}
+
+.txtBoxContainer {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mytextarea {
+  height: 400px;
+  width: 90%;
+  font-size: 12pt;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+fieldset {
+  border: 5px solid black;
+  float: left;
+}
+
+.controls {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #CCCCFF;
+  margin-left: 30%;
+}
+
+.validators {
+  margin-top: 100px;
+  display: inline-grid;
+  float: right;
+}
+
+#w3cjs {
+  width: 60%;
+}
