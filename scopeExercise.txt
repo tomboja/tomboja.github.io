@@ -1,0 +1,105 @@
+1. Determine what this Javascript code will print out (without running it):
+  x = 1;
+  var a = 5;
+  var b = 10;
+  var c = function(a, b, c) {
+      var x = 10;
+      document.write(x);
+      document.write(a);
+      var f = function(a, b, c) {
+          b = a;
+          document.write(b);
+          b = c;
+          var x = 5;
+      }
+      f(a,b,c);
+      document.write(b);
+ }
+c(8,9,10); // 10, 8
+document.write(b);
+document.write(x);
+
+OUTPUT: 10  8  8  9  10  1
+
+
+2. What is the difference between a method and function?
+
+ANS: Method is a function that belongs to an object/class
+
+3. What does 'this' refer to when used in a Java method?
+
+ANS: this in Java refers to the current object of the class
+
+4. What does 'this' refer to when used in a JavaScript method?
+
+ANS: It has different values depending on where it is used:
+      In a method, this refers to the owner object.
+      Alone, this refers to the global object.
+      In a function, this refers to the global object.
+      In a function, in strict mode, this is undefined.
+      In an event, this refers to the element that received the event.
+      Methods like call(), and apply() can refer this to any object.
+
+5. What does 'this' refer to when used in a JavaScript constructor function?
+
+ANS: this in Javascript constructor refers to the current object being instantiated with the class constructor
+
+6. Assume object x is the prototype for object y in Javascript. Object x has a method f( ) containing keyword 'this'.
+When f is called by x.f( ), what does 'this' refer to?
+
+ANS: this in this case refers to the prototype object which is x
+
+7. What is a free variable in JavaScript?
+
+ANS: Free variables are variables that exist in outer scope of an inner function and
+ can be used in an inner function, without being passed or declared in the inner function.
+ The inner function will have access to the free variables which ineffect results in closure
+
+8. Create an object that has properties with name = "fred" and major="music" and 
+  a property that is a function that takes 2 numbers and returns the smallest of the two, 
+  or the square of the two if they are equal.
+
+{
+  name: 'fred',
+  major: 'music',
+  smallestOrSquare: function(a, b) {
+    if (a === b) {
+      return a * b
+    } else {
+      return Math.min(a, b)
+    }
+  }
+}
+
+9. Write Javascript code for creating three Employee objects using the "new" keyword 
+and a constructor function. Employee objects have the following fields: name, salary, position
+
+
+class Employee {
+  constructor(name, salary, position) {
+    this.name = name
+    this.salary = salary
+    this.position = position
+  }
+}
+
+let emp1 = new Employee('Tom', '200000', 'Manager')
+let emp2 = new Employee('James', '170000', 'Software Engineer')
+let emp3 = new Employee('Sara', '150000', 'Software Designer')
+
+10. Write a Javascript function that takes any number of input arguments and returns the product of the
+arguments
+
+let product = function(a, b, ...more) {
+  let prod = 1
+  prod *= a * b
+  for(const element of more) {
+    prod *= element
+  }
+
+  return prod
+}
+
+11.  Write an arrow function that returns the maximum of its three input arguments.
+
+const max = (a, b, c) => Math.max(a, b, c)

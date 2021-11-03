@@ -1,12 +1,3 @@
-window.onload = function () {
-  document.getElementById('bigButton').onclick = delay500
-  document.querySelector('#bling').onclick = blingOnChange
-}
-
-const delay500 = function () {
-  setInterval(alertFunc, 500);
-}
-
 const alertFunc = function () {
   const textArea = document.querySelector('#mytxt')
   // textArea.style.fontSize = '24pt'
@@ -15,6 +6,10 @@ const alertFunc = function () {
   const size = parseInt(style)
   const val = (size + 2) + 'pt'
   textArea.style.fontSize = val
+}
+
+const delay500 = function () {
+  setInterval(alertFunc, 500)
 }
 
 const blingOnChange = function () {
@@ -32,5 +27,9 @@ const blingOnChange = function () {
     textArea.style.textDecoration = 'none'
     document.querySelector('body').style.backgroundImage = ""
   }
+}
 
+window.onload = function () {
+  document.getElementById('bigButton').onclick = delay500
+  document.querySelector('#bling').onclick = blingOnChange
 }
