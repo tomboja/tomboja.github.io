@@ -44,7 +44,8 @@ ANS: It has different values depending on where it is used:
 
 ANS: this in Javascript constructor refers to the current object being instantiated with the class constructor
 
-6. Assume object x is the prototype for object y in Javascript. Object x has a method f( ) containing keyword 'this'.
+6. Assume object x is the prototype for object y in Javascript. Object x has a method f( ) 
+containing keyword 'this'.
 When f is called by x.f( ), what does 'this' refer to?
 
 ANS: this in this case refers to the prototype object which is x
@@ -75,12 +76,10 @@ ANS: Free variables are variables that exist in outer scope of an inner function
 and a constructor function. Employee objects have the following fields: name, salary, position
 
 
-class Employee {
-  constructor(name, salary, position) {
-    this.name = name
-    this.salary = salary
-    this.position = position
-  }
+function Employee(name, salary, position) {
+  this.name = name
+  this.salary = salary
+  this.position = position
 }
 
 let emp1 = new Employee('Tom', '200000', 'Manager')
@@ -90,10 +89,9 @@ let emp3 = new Employee('Sara', '150000', 'Software Designer')
 10. Write a Javascript function that takes any number of input arguments and returns the product of the
 arguments
 
-let product = function(a, b, ...more) {
+let product = function() {
   let prod = 1
-  prod *= a * b
-  for(const element of more) {
+  for(const element of arguments) {
     prod *= element
   }
 
