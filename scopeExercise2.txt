@@ -1,0 +1,309 @@
+1. Determine what this Javascript code will print out (without running it):
+    x = 1;
+    var a = 5;
+    var b = 10;
+    var c = function(a, b, c) {
+          document.write(x);
+          document.write(a);
+          var f = function(a, b, c) {
+                b = a;
+                document.write(b);
+                b = c;
+                var x = 5;
+          }
+          f(a,b,c);
+          document.write(b);
+          var x = 10;
+    }
+
+    c(8,9,10);
+    document.write(b);
+    document.write(x);
+
+
+OUTPUT: 1 8 8 9 10 1
+
+2. Define Global Scope and Local Scope in Javascript.
+
+ANS: Global Scope is a variable scope where every variable existing is accessible 
+     globally from all files. Variables defined outside of a function have global scope 
+     and they are added to the global windows object
+
+     Local Scope is a variable scope defined inside of a function. If a variable is defined 
+     inside a function, it has a local scope, which is inside the function block.
+
+3. Consider the following structure of Javascript code:
+    // Scope A
+    function XFunc () {
+        // Scope B
+        function YFunc () {
+            // Scope C
+        };
+    };
+(a) Do statements in Scope A have access to variables defined in Scope B and C? NO.
+(b) Do statements in Scope B have access to variables defined in Scope A? YES.
+(c) Do statements in Scope B have access to variables defined in Scope C? NO.
+(d) Do statements in Scope C have access to variables defined in Scope A? YES.
+(e) Do statements in Scope C have access to variables defined in Scope B? YES.
+
+4. What will be printed by the following (answer without running it)?
+    var x = 9;
+    function myFunction() {
+        return x * x;
+    }
+    document.write(myFunction());
+    x = 5;
+    document.write(myFunction());
+
+    OUTPUT: 81  25
+
+5.  var foo = 1;
+    function bar() {
+        if (!foo) {
+            var foo = 10;
+        }
+        alert(foo);
+    }
+    bar();
+What will the alert print out? (Answer without running the code. Remember ‘hoisting’.)?
+
+ANS: 10
+
+6. Consider the following definition of an add() function to increment a counter variable:
+
+    var add = (function () {
+            var counter = 0;
+            return function () {
+                return counter += 1;
+            }
+          })();
+
+Modify the above module to define a count object with two methods: add( ) and reset( ). 
+The count.add() method adds one to the counter (as above). 
+The count.reset() method sets the counter to 0.
+
+let count = (function() {
+  let counter = 0;
+
+  let add = function() {
+    return counter += 1;
+  }
+
+  let reset = function() {
+    counter = 0;
+    return counter;
+  }
+
+  return {
+    add: add,
+    reset: reset
+  }
+
+  // The return statement can also be written as 
+  // return {add, reset}
+})()
+
+7. In the definition of add() shown in question 6, identify the "free" variable. 
+In the context of a function closure, what is a "free" variable?
+
+ANS: counter is a free variable for add function
+     In the context of a closure function, the variable that freely exists and can be 
+     accessed by the inner function is a free variable
+
+8. The add() function defined in question 6 always adds 1 to the counter each time 
+it is called. Write a definition of a function make_adder(inc), whose return value 
+is an add function with increment value `inc´ (instead of 1). Here is an example of using
+this function:
+
+    add5 = make_adder(5);
+    add5( ); add5( ); add5( ); // final counter value is 15
+    add7 = make_adder(7);
+    add7( ); add7( ); add7( ); // final counter value is 21
+
+ANS: 
+    let make_adder = (function (inc) {
+        let counter = 0;
+
+        return function() {
+            return counter += inc;
+        }
+    })()
+
+
+9. Suppose you are given a file of Javascript code containing a list of many function 
+and variable declarations. All of these function and variable names will be added to 
+the Global Javascript namespace. What simple modification to the Javascript file can
+remove all the names from the Global namespace?
+
+ANS: Enclosing all the functions and variables in an immediately evoked function (an iffy)
+     function removes them from the global scope and keep the variables private. 
+     The functions that need to be accessed from this file elsewhere can be added to an 
+     object and returned or exposed
+
+10. Using the Revealing Module Pattern, write a Javascript definition of a Module that 
+creates an Employee Object with the following fields and methods:
+
+    Private Field: name
+    Private Field: age
+    Private Field: salary
+    Public Method: setAge(newAge)
+    Public Method: setSalary(newSalary)
+    Public Method: setName(newName)
+    Private Method: getAge( )
+    Private Method: getSalary( )
+    Private Method: getName( )
+    Public Method: increaseSalary(percentage) // uses private getSalary( )
+    Public Method: incrementAge( ) // uses private getAge( )
+
+ANS: 
+  let employeeObject = (function() {
+      let name = ''
+      let age = ''
+      let salary = ''
+
+      let setSalary = function(newSalary) { 
+          salary = newSalary
+        }
+      let setName = function(newName) { 
+          name = newName
+        }
+      let setAge = function(newAge) { 
+          age = newAge
+        }
+
+      let getAge = function() { 
+          return age
+        }
+      let getName = function() { 
+          return name
+        }
+      let getSalary = function() { 
+          return salary;
+        }
+
+      let increaseSalary = function(percentage) {
+          let currentSalary = getSalary()
+          salary = currentSalary * (1 + percentage)
+        }
+
+      let incrementAge = function() { 
+          age = getAge() + 1
+        }
+
+      return {
+          setAge: setAge,
+          getAge: getAge,
+          setName: setName,
+          getName: getName,
+          setSalary: setSalary,
+          increaseSalary: increaseSalary,
+          incrementAge: incrementAge
+        }
+  })()
+
+11. Rewrite your answer to Question 10 using the Anonymous Object Literal Return Pattern.
+
+ANS: 
+      let employeeObject = (function() {
+      let name = ''
+      let age = ''
+      let salary = ''
+
+      return {
+          setAge: function(newAge) { age = newAge },
+          getAge: function() { return age },
+          setName: function(newName) { name = newName },
+          getName: function() { return name },
+          setSalary: function(newSalary) { salary = newSalary },
+          getSalary: function() { return salary },
+          increaseSalary: function(percentage) {
+                let currentSalary = getSalary()
+                salary = currentSalary * (1 + percentage)
+            },
+          incrementAge: function() { 
+                age = getAge() + 1
+            }
+        }
+  })()
+
+12. Rewrite your answer to Question 10 using the Locally Scoped Object Literal Pattern.
+
+ANS: 
+      let employeeObject = (function() {
+      let name = ''
+      let age = ''
+      let salary = ''
+
+      let obj = {}
+      obj.setAge = function(newAge) { age = newAge }
+      obj.getAge = function() { return age }
+      obj.setName = function(newName) { name = newName }
+      obj.getName = function() { return name }
+      obj.setSalary = function(newSalary) { salary = newSalary }
+      obj.getSalary = function() { return salary }
+      obj.increaseSalary = function(percentage) {
+                let currentSalary = getSalary()
+                salary = currentSalary * (1 + percentage)
+            }
+      obj.incrementAge = function() { 
+                age = getAge() + 1
+            }
+
+      return obj
+  })()
+
+13. Write a few Javascript instructions to extend the Module of 
+Question 10 to have a public address field and public methods setAddress(newAddress) 
+and getAddress( ).
+
+ANS: 
+    employeeObject.extension = address
+    employeeObject.extension = function setAddress(newAddress) {
+        address = newAddress
+    }
+    employeeObject.extension = function getAddress() {
+        return address
+    }
+
+14. What is the output of the following code?
+        const promise = new Promise((resolve, reject) => {
+            reject(“Hattori”);
+        });
+        promise.then(val => alert(“Success: “ + val))
+            .catch(e => alert(“Error: “ + e));
+
+OUTPUT: alerts Error: Hattori
+
+15. What is the output of the following code?
+    const promise = new Promise((resolve, reject) => {
+        resolve(“Hattori”);
+        setTimeout(()=> reject(“Yoshi”), 500);
+    });
+    promise.then(val => alert(“Success: “ + val))
+    .catch(e => alert(“Error: “ + e));
+
+OUTPUT: alerts Success: Hattori
+
+16. What is the output of the following code?
+function job(state) {
+        return new Promise(function(resolve, reject) {
+            if (state) {
+                resolve('success');
+            } else {
+                reject('error');
+            }
+        });
+    }
+let promise = job(true);
+promise.then(function(data) {
+    console.log(data); // success
+    return job(false); 
+ })
+ .catch(function(error) {
+    console.log(error);// error
+    return 'Error caught'; // Error caught
+});
+
+ANS: Outputs the following to the console
+    'success'
+    'error'
