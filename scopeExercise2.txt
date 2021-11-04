@@ -21,7 +21,7 @@
     document.write(x);
 
 
-OUTPUT: 1 8 8 9 10 1
+OUTPUT: undefined 8 8 9 10 1
 
 2. Define Global Scope and Local Scope in Javascript.
 
@@ -91,7 +91,6 @@ let count = (function() {
 
   let reset = function() {
     counter = 0;
-    return counter;
   }
 
   return {
@@ -135,8 +134,9 @@ and variable declarations. All of these function and variable names will be adde
 the Global Javascript namespace. What simple modification to the Javascript file can
 remove all the names from the Global namespace?
 
-ANS: Enclosing all the functions and variables in an immediately evoked function (an iffy)
-     function removes them from the global scope and keep the variables private. 
+ANS: Enclosing all the functions and variables in an immediately evoked function 
+     (an iffy or module pattern) function removes them from the global scope and keep 
+     the variables private. 
      The functions that need to be accessed from this file elsewhere can be added to an 
      object and returned or exposed
 
@@ -183,7 +183,7 @@ ANS:
 
       let increaseSalary = function(percentage) {
           let currentSalary = getSalary()
-          salary = currentSalary * (1 + percentage)
+          salary = currentSalary * (1 + percentage / 100)
         }
 
       let incrementAge = function() { 
@@ -192,9 +192,7 @@ ANS:
 
       return {
           setAge: setAge,
-          getAge: getAge,
           setName: setName,
-          getName: getName,
           setSalary: setSalary,
           increaseSalary: increaseSalary,
           incrementAge: incrementAge
@@ -211,14 +209,12 @@ ANS:
 
       return {
           setAge: function(newAge) { age = newAge },
-          getAge: function() { return age },
           setName: function(newName) { name = newName },
-          getName: function() { return name },
           setSalary: function(newSalary) { salary = newSalary },
           getSalary: function() { return salary },
           increaseSalary: function(percentage) {
                 let currentSalary = getSalary()
-                salary = currentSalary * (1 + percentage)
+                salary = currentSalary * (1 + percentage / 100)
             },
           incrementAge: function() { 
                 age = getAge() + 1
@@ -236,14 +232,12 @@ ANS:
 
       let obj = {}
       obj.setAge = function(newAge) { age = newAge }
-      obj.getAge = function() { return age }
       obj.setName = function(newName) { name = newName }
-      obj.getName = function() { return name }
       obj.setSalary = function(newSalary) { salary = newSalary }
       obj.getSalary = function() { return salary }
       obj.increaseSalary = function(percentage) {
                 let currentSalary = getSalary()
-                salary = currentSalary * (1 + percentage)
+                salary = currentSalary * (1 + percentage / 100)
             }
       obj.incrementAge = function() { 
                 age = getAge() + 1
@@ -257,11 +251,11 @@ Question 10 to have a public address field and public methods setAddress(newAddr
 and getAddress( ).
 
 ANS: 
-    employeeObject.extension = address
-    employeeObject.extension = function setAddress(newAddress) {
+    employeeObject.address = ''
+    employeeObject.setAddress = function (newAddress) {
         address = newAddress
     }
-    employeeObject.extension = function getAddress() {
+    employeeObject.getAddress = function () {
         return address
     }
 
