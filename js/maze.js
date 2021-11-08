@@ -27,6 +27,7 @@ $(document).ready(function () {
 
   $('#maze').on('mouseleave', function () {
     $(".boundary").addClass("youlose")
+    $("#status").text("Sorry, you lost!, Click on 'S' to restart")
   })
 
 });
