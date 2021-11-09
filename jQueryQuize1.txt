@@ -23,7 +23,7 @@ Sample HTML:
 <html>
     <head>
         <script>
-        <!—INSERT YOUR JQUERY CODE HERE - - >
+          $('p').append('YES!');
         </script>
     </head>
     <body>
